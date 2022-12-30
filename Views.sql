@@ -1,13 +1,17 @@
+--SQL Script to create views for Vancouver crime on a per 10,000 basis. 
+
+
 use[Covid19_A2]
 go
-
-DROP VIEW IF EXISTS vwCases_per10000
-GO
 
 
 --Creating the views
 
 --Case View
+DROP VIEW IF EXISTS vwCases_per10000
+GO
+
+
 CREATE VIEW vwCases_per10000 AS 
 
 select ((MAX([cumulative_cases])/ p.[Population])* 10000) rel_prop_cases_per10000, p.[Province]
